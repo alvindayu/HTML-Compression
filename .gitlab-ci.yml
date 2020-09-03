@@ -1,0 +1,14 @@
+image: registry.gitlab.com/pages/hugo/hugo_extended:0.73.0
+
+before_script:
+  - apk add --update --no-cache git
+  - hugo version
+
+pages:
+  script:
+  - hugo --minify --enableGitInfo
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
